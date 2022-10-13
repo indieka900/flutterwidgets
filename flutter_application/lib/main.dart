@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgetsexample/widget_3.dart';
+import 'package:flutter_application/widgetsexample/widget_4.dart';
 import 'widgetsexample/widget_one.dart';
 import 'widgetsexample/widget_two.dart';
 
@@ -98,6 +99,31 @@ class _MyhommiepageState extends State<Myhommiepage> {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const Showdialogw();
+                            },
+                          ),
+                        );
+                      });
+                    },
+                    child: const Text('Show Dialog'),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
