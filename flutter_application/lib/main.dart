@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/widgetsexample/widget_3.dart';
 import 'widgetsexample/widget_one.dart';
 import 'widgetsexample/widget_two.dart';
 
@@ -45,6 +46,7 @@ class _MyhommiepageState extends State<Myhommiepage> {
               height: 35,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const SizedBox(
                   width: 10,
@@ -73,6 +75,20 @@ class _MyhommiepageState extends State<Myhommiepage> {
                         MaterialPageRoute(
                           builder: (context) {
                             return const Widgettwo();
+                          },
+                        ),
+                      );
+                    });
+                  },
+                  child: const Text('Aboutlist Tile'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const AbsorbPointerw();
                           },
                         ),
                       );
