@@ -83,19 +83,22 @@ class _MyhommiepageState extends State<Myhommiepage> {
                   },
                   child: const Text('Aboutlist Tile'),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const AbsorbPointerw();
-                          },
-                        ),
-                      );
-                    });
-                  },
-                  child: const Text('Aboutlist Tile'),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const AbsorbPointerw();
+                            },
+                          ),
+                        );
+                      });
+                    },
+                    child: const Text('Absorb pointer'),
+                  ),
                 ),
               ],
             ),

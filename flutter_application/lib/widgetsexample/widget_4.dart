@@ -11,6 +11,10 @@ class Showdialogw extends StatelessWidget {
       ),
       body: Center(
         child: TextButton(
+          style: TextButton.styleFrom(
+              backgroundColor: Colors.black,
+              animationDuration: const Duration(seconds: 2),
+              elevation: 2),
           onPressed: () {
             showDialog(
                 context: context,
