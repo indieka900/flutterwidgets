@@ -18,8 +18,10 @@ class Showdialogw extends StatelessWidget {
           onPressed: () {
             showDialog(
                 context: context,
-                builder: (context) => AlertDialog(
-                      actions: [
+                builder: (context) => SimpleDialog(
+                      title: const Text('Flutter Tutorial'),
+                      contentPadding: const EdgeInsets.all(22),
+                      children: [
                         ElevatedButton(
                           onPressed: () {
                             Navigator.of(context).pop();
@@ -27,9 +29,7 @@ class Showdialogw extends StatelessWidget {
                           child: const Text('Go Back'),
                         )
                       ],
-                      title: const Text('Flutter Tutorial'),
-                      contentPadding: const EdgeInsets.all(22),
-                      content: const Text('This is the alert dialog'),
+                      //content: const Text('This is the alert dialog'),
                     ));
           },
           child: const Text('Show dialog message'),
