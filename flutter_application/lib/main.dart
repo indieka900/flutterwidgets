@@ -136,14 +136,15 @@ class _MyhommiepageState extends State<Myhommiepage> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return FavoursPage();
+                            return const FavoursPage();
                           },
                         ),
                       );
                     });
                   },
                   child: const Text('My to-do list'),
-                )
+                ),
+                const Text('Text widget',style: TextStyle(fontWeight: FontWeight.bold))
                 //PopupMenuButton(itemBuilder: ((context) =>Showdialogw() ))
               ],
             )
