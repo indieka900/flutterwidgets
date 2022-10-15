@@ -9,6 +9,9 @@ class Sample1 extends StatefulWidget {
 
 class _Sample1State extends State<Sample1> {
   bool toggle = true;
+  String txt1 = 'Toggle Two';
+  String txt2 = 'Press the floating on to change';
+  var txt;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,10 +22,22 @@ class _Sample1State extends State<Sample1> {
       ),
       body: Center(
         child: toggle
-            ? const Text('Toggle One')
+            ? const Text(
+                'Toggle One',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+              )
             : ElevatedButton(
-                onPressed: () {},
-                child: const Text('Toggle Two'),
+                onPressed: () {
+                  setState(() {
+                    // if (txt != txt1) {
+                    //   txt = txt1;
+                    // } else {
+                    //   txt = txt2;
+                    // }
+                    txt != txt1 ? txt = txt1 : txt = txt2;
+                  });
+                },
+                child: Text(txt),
               ),
       ),
       floatingActionButton: FloatingActionButton(
