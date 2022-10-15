@@ -15,7 +15,7 @@ class _Sample1State extends State<Sample1> {
       appBar: AppBar(
         backgroundColor: Colors.red[200],
         title: const Text('Murife'),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
       ),
       body: Center(
         child: toggle

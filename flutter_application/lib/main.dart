@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/widgetsexample/floating.dart';
 import 'package:flutter_application/widgetsexample/full_example.dart';
 import 'package:flutter_application/widgetsexample/widget_3.dart';
 import 'package:flutter_application/widgetsexample/widget_4.dart';
@@ -150,6 +151,15 @@ class _MyhommiepageState extends State<Myhommiepage> {
                 ),
                 //PopupMenuButton(itemBuilder: ((context) =>Showdialogw() ))
               ],
+            ),
+            ElevatedButton(
+              onPressed: () => setState(() {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return const Sample1();
+                }));
+              }),
+              child: const Text('Samples'),
             )
           ],
         ),
