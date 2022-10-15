@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/widgetsexample/animationex.dart';
 import 'package:flutter_application/widgetsexample/floating.dart';
 import 'package:flutter_application/widgetsexample/full_example.dart';
 import 'package:flutter_application/widgetsexample/widget_3.dart';
@@ -160,6 +161,15 @@ class _MyhommiepageState extends State<Myhommiepage> {
                 }));
               }),
               child: const Text('Samples'),
+            ),
+            ElevatedButton(
+              onPressed: () => setState(() {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return const FadeTest();
+                }));
+              }),
+              child: const Text('Fade Test'),
             )
           ],
         ),

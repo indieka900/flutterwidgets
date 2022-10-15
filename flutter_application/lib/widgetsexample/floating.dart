@@ -11,7 +11,7 @@ class _Sample1State extends State<Sample1> {
   bool toggle = true;
   String txt1 = 'Toggle Two';
   String txt2 = 'Press the floating on to change';
-  var txt;
+  String txt = 'Hello';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

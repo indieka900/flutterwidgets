@@ -15,7 +15,7 @@ class _FadeTestState extends State<FadeTest> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     controller = AnimationController(
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(seconds: 1),
       vsync: this,
     );
     curve = CurvedAnimation(
@@ -35,6 +35,13 @@ class _FadeTestState extends State<FadeTest> with TickerProviderStateMixin {
           opacity: curve,
           child: const FlutterLogo(size: 150),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          controller.forward();
+        },
+        tooltip: 'Fade',
+        child: const Icon(Icons.brush_outlined),
       ),
     );
   }
