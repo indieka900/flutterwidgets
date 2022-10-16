@@ -52,15 +52,29 @@ class _TabScrollingState extends State<TabScrolling>
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          title: const Text(
+            'Scrolling of some Widgets',
+            style: TextStyle(
+                fontSize: 20, color: Color.fromARGB(255, 239, 243, 4)),
+          ),
+          backgroundColor: const Color.fromARGB(255, 87, 50, 37),
           bottom: TabBar(
               labelColor: const Color.fromARGB(255, 0, 238, 8),
               controller: _tabController,
               isScrollable: true,
               tabs: const [
-                Text('Contact Page'),
-                Text('Second Tab'),
-                Text('Third Tab'),
+                Text(
+                  'Contact Page',
+                  style: TextStyle(fontSize: 18),
+                ),
+                Text(
+                  'Second Tab',
+                  style: TextStyle(fontSize: 18),
+                ),
+                Text(
+                  'Third Tab',
+                  style: TextStyle(fontSize: 18),
+                ),
               ]),
         ),
         body: Center(

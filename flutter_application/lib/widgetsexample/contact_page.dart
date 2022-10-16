@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
@@ -9,47 +10,75 @@ class ContactPage extends StatefulWidget {
 }
 
 class Contact {
-  String name;
-  //String phone;
+  final String name;
+  final String id;
+  String phone;
   Contact({
     required this.name,
-    //required this.phone,
-  });
+    required this.phone,
+  }) : id = const Uuid().v4();
 }
 
-class ContactBook {
-  ContactBook._sharedInstance();
+class ContactBook extends ValueNotifier<List<Contact>> {
+  ContactBook._sharedInstance() : super([]);
   static final ContactBook _shared = ContactBook._sharedInstance();
   factory ContactBook() => _shared;
 
-  final List<Contact> _contacts = [];
-
-  int get length => _contacts.length;
+  int get length => value.length;
 
   void add({required Contact contact}) {
-    _contacts.add(contact);
+    final contacts = value;
+    contacts.add(contact);
+    notifyListeners();
   }
 
   void remove({required Contact contact}) {
-    _contacts.remove(contact);
+    final contacts = value;
+    if (contacts.contains(contact)) {
+      contacts.remove(contact);
+      notifyListeners();
+    }
   }
 
   Contact? contact({required int atIndex}) =>
-      _contacts.length > atIndex ? _contacts[atIndex] : null;
+      value.length > atIndex ? value[atIndex] : null;
 }
 
 class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
-    final contactBook = ContactBook();
     return Scaffold(
-      body: ListView.builder(
-        itemCount: contactBook.length,
-        itemBuilder: (context, index) {
-          final contact = contactBook.contact(atIndex: index)!;
-          return ListTile(
-            title: Text(contact.name),
-            //subtitle: Text(contact.phone),
+      body: ValueListenableBuilder(
+        valueListenable: ContactBook(),
+        builder: (context, value, child) {
+          final contacts = value;
+          return ListView.builder(
+            itemCount: contacts.length,
+            itemBuilder: (context, index) {
+              final contact = contacts[index];
+              return Dismissible(
+                direction: DismissDirection.startToEnd,
+                onDismissed: (direction) =>
+                    ContactBook().remove(contact: contact),
+                key: ValueKey(contact.id),
+                background: Container(
+                  color: Colors.redAccent,
+                  padding: const EdgeInsets.only(left: 20),
+                  child: const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Icon(Icons.delete),
+                  ),
+                ),
+                child: Material(
+                  color: const Color.fromARGB(255, 250, 244, 244),
+                  elevation: 8.0,
+                  child: ListTile(
+                    title: Text(contact.name),
+                    subtitle: Text(contact.phone),
+                  ),
+                ),
+              );
+            },
           );
         },
       ),
@@ -75,17 +104,20 @@ class Addcontact extends StatefulWidget {
 }
 
 class _AddcontactState extends State<Addcontact> {
-  late final TextEditingController _controller;
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
 
   @override
   void initState() {
-    _controller = TextEditingController();
+    _nameController = TextEditingController();
+    _phoneController = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _nameController.dispose();
+    _phoneController.dispose();
     super.dispose();
   }
 
@@ -104,21 +136,23 @@ class _AddcontactState extends State<Addcontact> {
       body: Column(
         children: [
           TextField(
-            controller: _controller,
+            controller: _nameController,
             decoration: const InputDecoration(
               hintText: 'Enter the name...',
               icon: Icon(Icons.person),
             ),
           ),
-          // TextField(
-          //   controller: _controller,
-          //   decoration: const InputDecoration(
-          //     hintText: 'Enter the phone number',
-          //   ),
-          // ),
+          TextField(
+            controller: _phoneController,
+            decoration: const InputDecoration(
+              hintText: 'Enter the phone number',
+              icon: Icon(Icons.phone),
+            ),
+          ),
           TextButton(
             onPressed: () {
-              final contact = Contact(name: _controller.text);
+              final contact = Contact(
+                  name: _nameController.text, phone: _phoneController.text);
               ContactBook().add(contact: contact);
               setState(() {
                 Navigator.of(context).pop();
