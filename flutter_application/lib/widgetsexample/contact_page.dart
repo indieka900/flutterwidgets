@@ -56,7 +56,6 @@ class _ContactPageState extends State<ContactPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.person_add),
-        
       ),
     );
   }
@@ -70,8 +69,59 @@ class Addcontact extends StatefulWidget {
 }
 
 class _AddcontactState extends State<Addcontact> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Add a new contact',
+          style: TextStyle(
+              color: Color.fromARGB(255, 97, 32, 27),
+              fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color.fromARGB(255, 3, 250, 11),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            controller: _controller,
+            decoration: const InputDecoration(
+              hintText: 'Enter the name...',
+              icon: Icon(Icons.person),
+            ),
+          ),
+          TextField(
+            controller: _controller,
+            decoration: const InputDecoration(
+              hintText: 'Enter the phone number',
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              final contact = Contact(name: _controller.text);
+              ContactBook().add(contact: contact);
+              setState(() {
+                Navigator.of(context).pop();
+              });
+            },
+            child: const Text('Save Contact'),
+          )
+        ],
+      ),
+    );
   }
 }
