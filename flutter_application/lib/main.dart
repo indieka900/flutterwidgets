@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/widgetsexample/animationex.dart';
 import 'package:flutter_application/widgetsexample/floating.dart';
 import 'package:flutter_application/widgetsexample/full_example.dart';
+import 'package:flutter_application/widgetsexample/scrolling.dart';
 import 'package:flutter_application/widgetsexample/widget_3.dart';
 import 'package:flutter_application/widgetsexample/widget_4.dart';
 import 'widgetsexample/widget_one.dart';
@@ -162,14 +163,37 @@ class _MyhommiepageState extends State<Myhommiepage> {
               }),
               child: const Text('Samples'),
             ),
+            const SizedBox(
+              height: 50,
+              width: 150,
+              child: Center(
+                child: Text(
+                  'Sized box',
+                  style: TextStyle(
+                      backgroundColor: Colors.redAccent,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                      decorationColor: Colors.orange),
+                ),
+              ),
+            ),
+            // ElevatedButton(
+            //   onPressed: () => setState(() {
+            //     Navigator.of(context)
+            //         .push(MaterialPageRoute(builder: (BuildContext context) {
+            //       return const FadeTest();
+            //     }));
+            //   }),
+            //   child: const Text('Fade Test'),
+            // ),
             ElevatedButton(
               onPressed: () => setState(() {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (BuildContext context) {
-                  return const FadeTest();
+                  return const TabScrolling();
                 }));
               }),
-              child: const Text('Fade Test'),
+              child: const Text('Scrolling Demo'),
             )
           ],
         ),

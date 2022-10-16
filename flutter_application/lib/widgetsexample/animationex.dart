@@ -27,9 +27,9 @@ class _FadeTestState extends State<FadeTest> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animation test'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Animation test'),
+      // ),
       body: Center(
         child: FadeTransition(
           opacity: curve,
