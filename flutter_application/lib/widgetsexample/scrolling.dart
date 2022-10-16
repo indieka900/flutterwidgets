@@ -66,9 +66,13 @@ class _TabScrollingState extends State<TabScrolling>
           child: TabBarView(
             controller: _tabController,
             children: const [
-              Text('First Tab'),
+              Center(
+                child: Text('First Tab'),
+              ),
               FadeTest(),
-              Text('Third Tab'),
+              Center(
+                child: Text('Third Tab'),
+              ),
             ],
           ),
         ),
