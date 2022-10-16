@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 //import 'package:flutter/services.dart';
 
 // class Favor {
@@ -96,7 +97,7 @@ class FavoursPage extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final favor = favors[index];
               return Card(
-                key: ValueKey(favor.uuid),
+                key: ValueKey(favor.uuid.v4()),
                 margin:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 25.0),
                 child: Padding(
