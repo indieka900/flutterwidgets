@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgetsexample/animationex.dart';
+import 'package:flutter_application/widgetsexample/contact_page.dart';
 
 class TabScrolling extends StatefulWidget {
   const TabScrolling({super.key});
@@ -48,7 +49,7 @@ class _TabScrollingState extends State<TabScrolling>
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -57,7 +58,7 @@ class _TabScrollingState extends State<TabScrolling>
               controller: _tabController,
               isScrollable: true,
               tabs: const [
-                Text('First Tab'),
+                Text('Contact Page'),
                 Text('Second Tab'),
                 Text('Third Tab'),
               ]),
@@ -66,9 +67,7 @@ class _TabScrollingState extends State<TabScrolling>
           child: TabBarView(
             controller: _tabController,
             children: const [
-              Center(
-                child: Text('First Tab'),
-              ),
+              ContactPage(),
               FadeTest(),
               Center(
                 child: Text('Third Tab'),
