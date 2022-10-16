@@ -54,7 +54,13 @@ class _ContactPageState extends State<ContactPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          await Navigator.of(context).push(
+            MaterialPageRoute(builder: (BuildContext context) {
+              return const Addcontact();
+            }),
+          );
+        },
         child: const Icon(Icons.person_add),
       ),
     );
@@ -104,12 +110,12 @@ class _AddcontactState extends State<Addcontact> {
               icon: Icon(Icons.person),
             ),
           ),
-          TextField(
-            controller: _controller,
-            decoration: const InputDecoration(
-              hintText: 'Enter the phone number',
-            ),
-          ),
+          // TextField(
+          //   controller: _controller,
+          //   decoration: const InputDecoration(
+          //     hintText: 'Enter the phone number',
+          //   ),
+          // ),
           TextButton(
             onPressed: () {
               final contact = Contact(name: _controller.text);
