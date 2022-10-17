@@ -49,6 +49,7 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 231, 177, 213),
       body: ValueListenableBuilder(
         valueListenable: ContactBook(),
         builder: (context, value, child) {
@@ -125,6 +126,7 @@ class _AddcontactState extends State<Addcontact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 189, 245, 99),
       appBar: AppBar(
         title: const Text(
           'Add a new contact',
