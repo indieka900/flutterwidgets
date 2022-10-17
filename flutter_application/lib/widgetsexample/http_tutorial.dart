@@ -10,25 +10,16 @@ class Myhttpexa extends StatefulWidget {
 }
 
 class _MyhttpexaState extends State<Myhttpexa> {
-  getData() async {
-    Response response = await get(
-        Uri.parse('http://worldtimeapi.org/api/timezone/Africa/Nairobi'));
-    Map data = jsonDecode(response.body);
-    //print(data['datetime']);
-    return data;
-
-    //print(data['id']);
-  }
-
+  
   @override
   void initState() {
-    getData();
+    //getData();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    Future item = getData();
+    //Future item = getData();
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text('HTTP Request'),
