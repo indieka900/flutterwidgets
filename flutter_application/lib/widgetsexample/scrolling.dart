@@ -29,7 +29,7 @@ class _TabScrollingState extends State<TabScrolling>
   void initState() {
     super.initState();
     _tabController = TabController(
-      length: 12,
+      length: 3,
       vsync: this,
       initialIndex: 0,
     );
