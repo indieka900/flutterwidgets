@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgetsexample/animationex.dart';
 import 'package:flutter_application/widgetsexample/contact_page.dart';
+import 'package:flutter_application/widgetsexample/http_tutorial.dart';
 
 class TabScrolling extends StatefulWidget {
   const TabScrolling({super.key});
@@ -31,7 +32,7 @@ class _TabScrollingState extends State<TabScrolling>
     _tabController = TabController(
       length: 3,
       vsync: this,
-      initialIndex: 0,
+      initialIndex: 1,
     );
     _tabController.addListener(() {
       setState(() {
@@ -83,9 +84,7 @@ class _TabScrollingState extends State<TabScrolling>
             children: const [
               ContactPage(),
               FadeTest(),
-              Center(
-                child: Text('Third Tab'),
-              ),
+              Myhttpexa(),
             ],
           ),
         ),
