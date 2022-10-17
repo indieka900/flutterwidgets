@@ -35,7 +35,13 @@ class _MyhttpexaState extends State<Myhttpexa> {
       body: Column(
         children: [
           //Text('${response.body}')
-          Text(result),
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Text(
+              result,
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     );
