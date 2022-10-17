@@ -4,16 +4,16 @@ import 'package:http/http.dart';
 
 class WorldTime {
   String location;
-  String? time;
+  String time = '';
   String url;
   WorldTime({
     required this.location,
     required this.url,
   });
 
-  void getData() async {
-    Response response = await get(
-        Uri.parse('http://worldtimeapi.org/api/timezone$url'));
+  Future<void> getData() async {
+    Response response =
+        await get(Uri.parse('http://worldtimeapi.org/api/timezone$url'));
     Map data = jsonDecode(response.body);
     //print(data['datetime']);
     //print(data['id']);

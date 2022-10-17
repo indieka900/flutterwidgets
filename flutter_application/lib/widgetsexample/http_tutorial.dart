@@ -9,9 +9,13 @@ class Myhttpexa extends StatefulWidget {
 }
 
 class _MyhttpexaState extends State<Myhttpexa> {
-  void setUpWorldTime() {
-    WorldTime instance = WorldTime(location: 'Nairobi', url: '/Africa/Nairobi');
-    instance.getData();
+  String result = 'Loading...';
+  void setUpWorldTime() async {
+    WorldTime instance = WorldTime(location: 'Europe', url: '/Europe/London');
+    await instance.getData();
+    setState(() {
+      result = instance.time;
+    });
   }
 
   @override
@@ -29,9 +33,9 @@ class _MyhttpexaState extends State<Myhttpexa> {
       // ),
       backgroundColor: const Color.fromARGB(255, 240, 213, 116),
       body: Column(
-        children: const [
+        children: [
           //Text('${response.body}')
-          //Text(item),
+          Text(result),
         ],
       ),
     );
