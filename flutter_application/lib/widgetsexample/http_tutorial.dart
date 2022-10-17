@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:flutter_application/widgetsexample/set_time.dart';
 
 class Myhttpexa extends StatefulWidget {
   const Myhttpexa({super.key});
@@ -10,10 +9,14 @@ class Myhttpexa extends StatefulWidget {
 }
 
 class _MyhttpexaState extends State<Myhttpexa> {
-  
+  void setUpWorldTime() {
+    WorldTime instance = WorldTime(location: 'Nairobi', url: '/Africa/Nairobi');
+    instance.getData();
+  }
+
   @override
   void initState() {
-    //getData();
+    setUpWorldTime();
     super.initState();
   }
 
