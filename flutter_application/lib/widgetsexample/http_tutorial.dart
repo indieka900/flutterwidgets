@@ -10,11 +10,13 @@ class Myhttpexa extends StatefulWidget {
 }
 
 class _MyhttpexaState extends State<Myhttpexa> {
-  void getData() async {
-    Response response =
-        await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+  getData() async {
+    Response response = await get(
+        Uri.parse('http://worldtimeapi.org/api/timezone/Africa/Nairobi'));
     Map data = jsonDecode(response.body);
-    print(data['title']);
+    //print(data['datetime']);
+    return data;
+
     //print(data['id']);
   }
 
@@ -26,6 +28,7 @@ class _MyhttpexaState extends State<Myhttpexa> {
 
   @override
   Widget build(BuildContext context) {
+    Future item = getData();
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text('HTTP Request'),
@@ -34,7 +37,7 @@ class _MyhttpexaState extends State<Myhttpexa> {
       body: Column(
         children: const [
           //Text('${response.body}')
-          //Text(getData()),
+          //Text(item),
         ],
       ),
     );

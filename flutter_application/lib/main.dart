@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/widgetsexample/animationex.dart';
+//import 'package:flutter_application/widgetsexample/animationex.dart';
 import 'package:flutter_application/widgetsexample/floating.dart';
 import 'package:flutter_application/widgetsexample/full_example.dart';
 import 'package:flutter_application/widgetsexample/scrolling.dart';
