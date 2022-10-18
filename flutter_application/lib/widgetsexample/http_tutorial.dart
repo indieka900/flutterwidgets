@@ -12,6 +12,7 @@ class Myhttpexa extends StatefulWidget {
 class _MyhttpexaState extends State<Myhttpexa> {
   String result = 'Loading...';
   String locate = '';
+  bool? timeD;
   void setUpWorldTime() async {
     WorldTime instance = WorldTime(location: 'Nairobi', url: '/Africa/Nairobi');
     await instance.getData();
@@ -24,6 +25,7 @@ class _MyhttpexaState extends State<Myhttpexa> {
     setState(() {
       result = instance.time;
       locate = instance.location;
+      timeD = instance.isDaytime;
     });
   }
 
@@ -58,42 +60,58 @@ class _MyhttpexaState extends State<Myhttpexa> {
               //   },
               // ),
             )
-          : Center(
-              child: Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (result != 'Loading...')
-                          const Icon(
+          : Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                      timeD! ? 'images/nature.jpg' : 'images/nigh.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          //if (result != 'Loading...')
+                          Icon(
                             Icons.location_on,
-                            color: Color.fromARGB(255, 139, 139, 139),
+                            color: timeD!
+                                ? const Color.fromARGB(255, 15, 14, 14)
+                                : const Color.fromARGB(255, 230, 231, 231),
                           ),
-                        Text(
-                          locate,
-                          style: const TextStyle(
-                              fontFamily: 'Roboto',
-                              //fontWeight: FontWeight.w300,
-                              decoration: TextDecoration.underline,
-                              fontStyle: FontStyle.italic,
-                              color: Color.fromARGB(255, 15, 128, 148),
-                              fontSize: 18),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Text(
-                      result,
-                      style: const TextStyle(
-                        fontSize: 50,
-                        //fontStyle: FontStyle.italic,
+                          Text(
+                            locate,
+                            style: TextStyle(
+                                fontFamily: 'Roboto',
+                                //fontWeight: FontWeight.w300,
+                                decoration: TextDecoration.underline,
+                                fontStyle: FontStyle.italic,
+                                color: timeD!
+                                    ? const Color.fromARGB(255, 5, 82, 5)
+                                    : const Color.fromARGB(255, 148, 119, 119),
+                                fontSize: 18),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Text(
+                        result,
+                        style: TextStyle(
+                            fontSize: 50,
+                            color: timeD!
+                                ? Colors.black
+                                : const Color.fromARGB(255, 94, 123, 202)
+                            //fontStyle: FontStyle.italic,
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
