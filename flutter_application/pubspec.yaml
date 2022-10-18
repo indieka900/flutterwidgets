@@ -1,4 +1,4 @@
-name: flutter_application
+name: Indieka
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -31,11 +31,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_launcher_icons: "^0.10.0"
   uuid: ^3.0.6
   http: ^0.13.5
   intl: ^0.17.0
@@ -47,6 +49,11 @@ dev_dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/myico.png"
+  min_sdk_android: 21
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
