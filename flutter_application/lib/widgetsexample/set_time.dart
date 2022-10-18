@@ -25,7 +25,7 @@ class WorldTime {
 
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
-      String formatted = DateFormat('yyyy-MM-dd  kk:mm:ss').format(now);
+      String formatted = DateFormat('dd/MM,  kk:mm:ss a').format(now);
       time = 'The time in $location is $formatted';
     } catch (e) {
       time = 'Time not found check the url';
