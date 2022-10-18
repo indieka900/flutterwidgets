@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String location;
@@ -24,7 +25,8 @@ class WorldTime {
 
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
-      time = now.toString();
+      String formatted = DateFormat('yyyy-MM-dd  kk:mm:ss').format(now);
+      time = 'The time in $location is $formatted';
     } catch (e) {
       time = 'Time not found check the url';
     }
