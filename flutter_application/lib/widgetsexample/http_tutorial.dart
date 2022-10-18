@@ -11,7 +11,7 @@ class Myhttpexa extends StatefulWidget {
 class _MyhttpexaState extends State<Myhttpexa> {
   String result = 'Loading...';
   void setUpWorldTime() async {
-    WorldTime instance = WorldTime(location: 'Europe', url: '/Europe/London');
+    WorldTime instance = WorldTime(location: 'Europe', url: '/Africa/Nairobi');
     await instance.getData();
     setState(() {
       result = instance.time;
