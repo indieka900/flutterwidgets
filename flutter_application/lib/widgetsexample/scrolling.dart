@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/widgetsexample/animationex.dart';
 import 'package:flutter_application/widgetsexample/contact_page.dart';
 import 'package:flutter_application/widgetsexample/http_tutorial.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TabScrolling extends StatefulWidget {
   const TabScrolling({super.key});
@@ -53,28 +54,26 @@ class _TabScrollingState extends State<TabScrolling>
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Scrolling of some Widgets',
-            style: TextStyle(
-                fontSize: 20, color: Color.fromARGB(255, 239, 243, 4)),
-          ),
+          title: Text('Scrolling of some Widgets',
+              style: GoogleFonts.alata(
+                  fontSize: 20, color: const Color.fromARGB(255, 239, 243, 4))),
           backgroundColor: const Color.fromARGB(255, 87, 50, 37),
           bottom: TabBar(
               labelColor: const Color.fromARGB(255, 0, 238, 8),
               controller: _tabController,
               isScrollable: true,
-              tabs: const [
+              tabs: [
                 Text(
                   'Contact Page',
-                  style: TextStyle(fontSize: 18),
+                  style: GoogleFonts.poppins(fontSize: 18),
                 ),
                 Text(
-                  'Second Tab',
-                  style: TextStyle(fontSize: 18),
+                  'Fade',
+                  style: GoogleFonts.poppins(fontSize: 18),
                 ),
                 Text(
-                  'Third Tab',
-                  style: TextStyle(fontSize: 18),
+                  'Clock',
+                  style: GoogleFonts.poppins(fontSize: 18),
                 ),
               ]),
         ),

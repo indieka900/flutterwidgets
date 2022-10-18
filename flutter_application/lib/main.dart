@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 //import 'package:flutter_application/widgetsexample/animationex.dart';
 import 'package:flutter_application/widgetsexample/floating.dart';
 import 'package:flutter_application/widgetsexample/full_example.dart';
@@ -9,6 +10,7 @@ import 'widgetsexample/widget_one.dart';
 import 'widgetsexample/widget_two.dart';
 
 void main() {
+  SystemUiOverlayStyle(systemNavigationBarColor: Colors.pink[400]);
   runApp(const MyApp());
 }
 
@@ -50,8 +52,8 @@ class _MyhommiepageState extends State<Myhommiepage> {
             const SizedBox(
               height: 35,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const SizedBox(
                   width: 10,
@@ -86,6 +88,9 @@ class _MyhommiepageState extends State<Myhommiepage> {
                     });
                   },
                   child: const Text('Aboutlist Tile'),
+                ),
+                const SizedBox(
+                  height: 15,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),

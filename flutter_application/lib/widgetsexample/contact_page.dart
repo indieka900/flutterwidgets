@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:uuid/uuid.dart';
 
 class ContactPage extends StatefulWidget {
@@ -48,6 +49,7 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(255, 231, 177, 213),
       body: ValueListenableBuilder(
         valueListenable: ContactBook(),
@@ -75,11 +77,17 @@ class _ContactPageState extends State<ContactPage> {
                     color: const Color.fromARGB(255, 250, 244, 244),
                     elevation: 8.0,
                     child: ListTile(
-                      title: Text((contact.name).toUpperCase()),
-                      subtitle: Text(contact.phone),
-                      leading: const CircleAvatar(
+                      title: Text((contact.name).toUpperCase(),
+                          style: GoogleFonts.heebo()),
+                      subtitle: Text(
+                        contact.phone,
+                        style: GoogleFonts.mukta(),
+                      ),
+                      leading: CircleAvatar(
                         backgroundColor: Colors.red,
-                        backgroundImage: AssetImage('images/whallpaper2.png'),
+                        backgroundImage: index % 2 == 0
+                            ? const AssetImage('images/profile.jpg')
+                            : const AssetImage('images/bazu.jpg'),
                       ),
                     ),
                   ),

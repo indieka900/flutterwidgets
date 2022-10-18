@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgetsexample/set_time.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Myhttpexa extends StatefulWidget {
   const Myhttpexa({super.key});
@@ -102,7 +103,8 @@ class _MyhttpexaState extends State<Myhttpexa> {
                       ),
                       Text(
                         result,
-                        style: TextStyle(
+                        style: GoogleFonts.ubuntu(
+                            //fontFamily: ,
                             fontSize: 50,
                             color: timeD!
                                 ? Colors.black
