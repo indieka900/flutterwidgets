@@ -57,25 +57,31 @@ class _ContactPageState extends State<ContactPage> {
             itemCount: contacts.length,
             itemBuilder: (context, index) {
               final contact = contacts[index];
-              return Dismissible(
-                direction: DismissDirection.startToEnd,
-                onDismissed: (direction) =>
-                    ContactBook().remove(contact: contact),
-                key: ValueKey(contact.id),
-                background: Container(
-                  color: Colors.redAccent,
-                  padding: const EdgeInsets.only(left: 20),
-                  child: const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Icon(Icons.delete),
+              return Card(
+                child: Dismissible(
+                  direction: DismissDirection.startToEnd,
+                  onDismissed: (direction) =>
+                      ContactBook().remove(contact: contact),
+                  key: ValueKey(contact.id),
+                  background: Container(
+                    color: Colors.redAccent,
+                    padding: const EdgeInsets.only(left: 20),
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Icon(Icons.delete),
+                    ),
                   ),
-                ),
-                child: Material(
-                  color: const Color.fromARGB(255, 250, 244, 244),
-                  elevation: 8.0,
-                  child: ListTile(
-                    title: Text(contact.name),
-                    subtitle: Text(contact.phone),
+                  child: Material(
+                    color: const Color.fromARGB(255, 250, 244, 244),
+                    elevation: 8.0,
+                    child: ListTile(
+                      title: Text((contact.name).toUpperCase()),
+                      subtitle: Text(contact.phone),
+                      leading: const CircleAvatar(
+                        backgroundColor: Colors.red,
+                        backgroundImage: AssetImage('images/whallpaper2.png'),
+                      ),
+                    ),
                   ),
                 ),
               );
